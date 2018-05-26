@@ -1,0 +1,155 @@
+[debug] [2018-05-26T20:21:14.433Z] ----------------------------------------------------------------------
+[debug] [2018-05-26T20:21:14.435Z] Command:       /home/ubuntu/.nvm/versions/node/v8.11.2/bin/node /home/ubuntu/.nvm/versions/node/v8.11.2/bin/firebase deploy
+[debug] [2018-05-26T20:21:14.435Z] CLI Version:   3.18.5
+[debug] [2018-05-26T20:21:14.435Z] Platform:      linux
+[debug] [2018-05-26T20:21:14.435Z] Node Version:  v8.11.2
+[debug] [2018-05-26T20:21:14.435Z] Time:          Sat May 26 2018 20:21:14 GMT+0000 (UTC)
+[debug] [2018-05-26T20:21:14.435Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-26T20:21:14.442Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-26T20:21:14.442Z] > authorizing via signed-in user
+[debug] [2018-05-26T20:21:14.444Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-26T20:21:14.444Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/usnDNSKoaCCznclNlCru0qeurCRz2C-yRfFfznONJBg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat May 26 2018 20:21:14 GMT+0000 (UTC)
+[debug] [2018-05-26T20:21:14.642Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T20:21:14.644Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/svatba-fb523  
+  
+ Sat May 26 2018 20:21:14 GMT+0000 (UTC)
+[info] 
+[warn] ⚠  Your CLI authentication needs to be updated to take advantage of new features.
+[warn] ⚠  Please run firebase login --reauth
+[info] 
+[debug] [2018-05-26T20:23:24.075Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-05-26T20:23:24.076Z] > authorizing via signed-in user
+[debug] [2018-05-26T20:23:24.077Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-26T20:23:24.077Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/usnDNSKoaCCznclNlCru0qeurCRz2C-yRfFfznONJBg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat May 26 2018 20:23:24 GMT+0000 (UTC)
+[debug] [2018-05-26T20:23:24.205Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T20:23:24.206Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/svatba-fb523  
+  
+ Sat May 26 2018 20:23:24 GMT+0000 (UTC)
+[debug] [2018-05-26T20:23:28.007Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T20:23:28.008Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/svatba-fb523/tokens  
+  
+ Sat May 26 2018 20:23:28 GMT+0000 (UTC)
+[debug] [2018-05-26T20:23:44.085Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'svatba-fb523'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-05-26T20:23:45.190Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/svatba-fb523/uploads/-LDT6kl9x8y1OZ5uA5Wb?fileCount=25&message=  
+  
+ Sat May 26 2018 20:23:45 GMT+0000 (UTC)
+[debug] [2018-05-26T20:40:20.024Z] Error: read ETIMEDOUT
+    at _errnoException (util.js:992:11)
+    at TLSWrap.onread (net.js:618:25)
+[error] 
+[error] Error: Server Error. read ETIMEDOUT
+[debug] [2018-05-26T20:52:56.111Z] ----------------------------------------------------------------------
+[debug] [2018-05-26T20:52:56.113Z] Command:       /home/ubuntu/.nvm/versions/node/v8.11.2/bin/node /home/ubuntu/.nvm/versions/node/v8.11.2/bin/firebase deploy
+[debug] [2018-05-26T20:52:56.114Z] CLI Version:   3.18.5
+[debug] [2018-05-26T20:52:56.114Z] Platform:      linux
+[debug] [2018-05-26T20:52:56.114Z] Node Version:  v8.11.2
+[debug] [2018-05-26T20:52:56.114Z] Time:          Sat May 26 2018 20:52:56 GMT+0000 (UTC)
+[debug] [2018-05-26T20:52:56.114Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-26T20:52:56.121Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-26T20:52:56.121Z] > authorizing via signed-in user
+[debug] [2018-05-26T20:52:56.123Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-26T20:52:56.123Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/usnDNSKoaCCznclNlCru0qeurCRz2C-yRfFfznONJBg',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sat May 26 2018 20:52:56 GMT+0000 (UTC)
+[debug] [2018-05-26T20:52:56.321Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T20:52:56.324Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/svatba-fb523  
+  
+ Sat May 26 2018 20:52:56 GMT+0000 (UTC)
+[debug] [2018-05-26T20:52:58.612Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T20:52:58.613Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/svatba-fb523/tokens  
+  
+ Sat May 26 2018 20:52:58 GMT+0000 (UTC)
+[debug] [2018-05-26T20:53:02.401Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'svatba-fb523'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-05-26T20:53:03.399Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/svatba-fb523/uploads/-LDTDT0I8YoE9DGXD1qd?fileCount=25&message=  
+  
+ Sat May 26 2018 20:53:03 GMT+0000 (UTC)
+[debug] [2018-05-26T20:54:06.860Z] Error: socket hang up
+    at createHangUpError (_http_client.js:331:15)
+    at TLSSocket.socketOnEnd (_http_client.js:423:23)
+    at emitNone (events.js:111:20)
+    at TLSSocket.emit (events.js:208:7)
+    at endReadableNT (_stream_readable.js:1064:12)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: Server Error. socket hang up
+[debug] [2018-05-26T20:54:17.332Z] ----------------------------------------------------------------------
+[debug] [2018-05-26T20:54:17.333Z] Command:       /home/ubuntu/.nvm/versions/node/v8.11.2/bin/node /home/ubuntu/.nvm/versions/node/v8.11.2/bin/firebase deploy
+[debug] [2018-05-26T20:54:17.334Z] CLI Version:   3.18.5
+[debug] [2018-05-26T20:54:17.334Z] Platform:      linux
+[debug] [2018-05-26T20:54:17.334Z] Node Version:  v8.11.2
+[debug] [2018-05-26T20:54:17.334Z] Time:          Sat May 26 2018 20:54:17 GMT+0000 (UTC)
+[debug] [2018-05-26T20:54:17.334Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-26T20:54:17.341Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-26T20:54:17.341Z] > authorizing via signed-in user
+[debug] [2018-05-26T20:54:17.343Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/svatba-fb523  
+  
+ Sat May 26 2018 20:54:17 GMT+0000 (UTC)
+[debug] [2018-05-26T20:54:18.278Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T20:54:18.280Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/svatba-fb523/tokens  
+  
+ Sat May 26 2018 20:54:18 GMT+0000 (UTC)
+[debug] [2018-05-26T20:54:22.070Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'svatba-fb523'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-05-26T20:54:23.175Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/svatba-fb523/uploads/-LDTDlUjNZMutXQlQVyy?fileCount=25&message=  
+  
+ Sat May 26 2018 20:54:23 GMT+0000 (UTC)
+[debug] [2018-05-26T21:03:40.183Z] ----------------------------------------------------------------------
+[debug] [2018-05-26T21:03:40.185Z] Command:       /home/ubuntu/.nvm/versions/node/v8.11.2/bin/node /home/ubuntu/.nvm/versions/node/v8.11.2/bin/firebase deploy
+[debug] [2018-05-26T21:03:40.185Z] CLI Version:   3.18.5
+[debug] [2018-05-26T21:03:40.185Z] Platform:      linux
+[debug] [2018-05-26T21:03:40.185Z] Node Version:  v8.11.2
+[debug] [2018-05-26T21:03:40.185Z] Time:          Sat May 26 2018 21:03:40 GMT+0000 (UTC)
+[debug] [2018-05-26T21:03:40.185Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-26T21:03:40.192Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-26T21:03:40.193Z] > authorizing via signed-in user
+[debug] [2018-05-26T21:03:40.196Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/svatba-fb523  
+  
+ Sat May 26 2018 21:03:40 GMT+0000 (UTC)
+[debug] [2018-05-26T21:04:29.366Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-26T21:04:29.367Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/svatba-fb523/tokens  
+  
+ Sat May 26 2018 21:04:29 GMT+0000 (UTC)
+[debug] [2018-05-26T21:04:31.453Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'svatba-fb523'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-05-26T21:04:32.558Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/svatba-fb523/uploads/-LDTG5GRcIpq5RgoRbOg?fileCount=25&message=  
+  
+ Sat May 26 2018 21:04:32 GMT+0000 (UTC)
