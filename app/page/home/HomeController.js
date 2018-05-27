@@ -1,105 +1,95 @@
-import AbstractController from 'app/page/AbstractController';
-import CategoryListService from 'app/model/categoryList/CategoryListService';
-import FeedService from 'app/model/feed/FeedService';
-import ItemResource from 'app/model/item/ItemResource';
+//import Dictionary from 'ima/dictionary/Dictionary';
+//import MetaManager from 'ima/meta/MetaManager';
+//import Router from 'ima/router/Router';
+import AbstractPageController from 'app/page/AbstractPageController';
+//import GenericError from 'ima/error/GenericError';
 
-/**
- * Controller for the home page, with both enabled and disabled filtering.
- */
-export default class HomeController extends AbstractController {
+export default class HomeController extends AbstractPageController {
   static get $dependencies() {
-    return [FeedService, CategoryListService, ItemResource];
+    return [];
   }
 
   /**
-   * Initializes the home page controller.
+   * Callback the controller uses to request the resources it needs to render
+   * its view. This method is invoked after the {@codelink init()} method.
    *
-   * @param {FeedService} feedService
-   * @param {CategoryListService} categoryListService
-   * @param {ItemResource} itemResource
-   */
-  constructor(feedService, categoryListService, itemResource) {
-    super();
-
-    /**
-     * Service providing the list of feed items loaded from the REST API.
-     *
-     * @type {FeedService}
-     */
-    this._feedService = feedService;
-
-    /**
-     * Service providing the list of categories loaded from the REST API.
-     *
-     * @type {CategoryListService}
-     */
-    this._categoryListService = categoryListService;
-
-    /**
-     * Item resource for creating new item entities.
-     *
-     * @type {ItemResource}
-     */
-    this._itemResource = itemResource;
-  }
-
-  /**
-   * Load all needed data.
+   * The controller should request all resources it needs in this method, and
+   * represent each resource request as a promise that will resolve once the
+   * resource is ready for use (these can be data fetch over HTTP(S), database
+   * connections, etc).
    *
-   * @return {Object<string, *>} object of promise
+   * The controller must return a map object. The field names of the object
+   * identify the resources being fetched and prepared, the values must be the
+   * Promises that resolve when the resources are ready to be used.
+   *
+   * The returned map object may also contain fields that have non-Promise
+   * value. These can be used to represent static data, or initial value of
+   * controller's state that will change due to user interaction, or resource
+   * that has been immediately available (for example fetched from the DOM
+   * storage).
+   *
+   * The system will wait for all promises to resolve, and then push them to
+   * the controller's state using the field names used in the returned map
+   * object.
+   *
+   * @override
+   * @return {Object<string, (Promise|*)>} A map object of promises
+   *         resolved when all resources the controller requires are ready. The
+   *         resolved values will be pushed to the controller's state.
    */
   load() {
     return {
-      categories: this._categoryListService.load(),
-      currentCategory: this._categoryListService.getCategoryByUrl(
-        this.params.category
-      ),
-      feed: this._feedService.load(this.params.category),
-      sharedItem: null
+      //error: Promise.reject(new GenericError('Try error page.')),
+      //redirect: Promise.reject(new GenericError('Redirect from home page to error page for $Debug = false.', {status: 303, url: 'http://localhost:3001/not-found'})),
+      message: `I am`,
+      name: `IMA.js`
     };
   }
 
   /**
-   * Event handler for the {@code sharetoggle} event fired by the Share
-   * component.
+   * Callback used to configure the meta attribute manager. The method is called
+   * after the the controller's state has been patched with the loaded
+   * resources, the view has been rendered and (if at the client-side) the
+   * controller has been provided with the rendered view.
    *
-   * The handler first checks whether the feed item for which sharing has
-   * been toggles is the feed item for which the sharing options are
-   * currently displayed.
-   *
-   * In such case, the handler resets the sharedItem state field of this
-   * controller, which results in hiding the sharing UI.
-   *
-   * If the event is fired for a different feed item, the handler sets the
-   * sharedItem state field of this controller to the new feed item, which
-   * results in hiding the sharing UI of the previosly selected feed item (if
-   * any), and showing the sharing UI for the newly selected feed item.
-   *
-   * @param {Object} event The event fired by the Share component.
+   * @override
+   * @param {Object<string, *>} loadedResources Map of resource names to
+   *        resources loaded by the {@codelink load} method. This is the same
+   *        object as the one passed to the {@codelink setState} method when
+   *        the Promises returned by the {@codelink load} method were resolved.
+   * @param {MetaManager} metaManager Meta attributes manager to configure.
+   * @param {Router} router The current application router.
+   * @param {Dictionary} dictionary The current localization dictionary.
+   * @param {Object<string, *>} settings The application settings for the
+   *        current application environment.
    */
-  onShareToggle(event) {
-    let state = this.getState();
+  setMetaParams(loadedResources, metaManager, router, dictionary, settings) {
+    let title = 'Lucie & Honza 14. 7. 2018';
+    let description =
+      'Informace a zajímavosti ke svatbě Lucie a Honzi.';
+    let domain = router.getDomain();
+    let image = domain + settings.$Static.image + '/pozvanka.jpeg';
 
-    if (state.sharedItem === event.item) {
-      state.sharedItem = null;
-    } else {
-      state.sharedItem = event.item;
-    }
+    let url = router.getUrl();
 
-    this.setState(state);
-  }
+    metaManager.setTitle(title);
 
-  /**
-   * Button click handler for add new item to feed.
-   * It creates new item entity and adds it to feed.
-   *
-   * @param {Object} data
-   */
-  onAddItemToFeed(data) {
-    this._itemResource.createEntity(data).then(item => {
-      let state = this.getState();
-      this._feedService.addItemToFeed(state.feed, item);
-      this.setState(state);
-    });
+    metaManager.setMetaName('description', description);
+    metaManager.setMetaName(
+      'keywords',
+      'svatba, Honza, Lucie'
+    );
+
+    metaManager.setMetaName('twitter:title', title);
+    metaManager.setMetaName('twitter:description', description);
+    metaManager.setMetaName('twitter:card', 'summary');
+    metaManager.setMetaName('twitter:image', image);
+    metaManager.setMetaName('twitter:url', url);
+
+    metaManager.setMetaProperty('og:title', title);
+    metaManager.setMetaProperty('og:description', description);
+    metaManager.setMetaProperty('og:type', 'website');
+    metaManager.setMetaProperty('og:image', image);
+    metaManager.setMetaProperty('og:url', url);
   }
 }

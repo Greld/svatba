@@ -17,21 +17,22 @@ export default (ns, oc, config) => {
           },
           fetchOptions: {
             mode: 'cors'
-          }
+          },
+          cache: true // if value exists in cache then returned it else make request to remote server.
         },
         cacheOptions: {
           prefix: 'http.' // Cache key prefix for response bodies (already parsed as JSON) of completed HTTP requests.
         }
       },
       $Cache: {
-        enabled: true,
-        ttl: 60000
+        enabled: true, //Turn on/off cache for all application.
+        ttl: 60000 // Default time to live for cached value in ms.
       },
       $Page: {
         $Render: {
           scripts: [
-            `/static/js/locale/${config.$Language}.js`,
-            '/static/js/app.bundle.min.js'
+            `/static/js/locale/${config.$Language}.js${versionStamp}`,
+            '/static/js/app.bundle.min.js' + versionStamp
           ],
           esScripts: [
             '/static/js/locale/' + config.$Language + '.js' + versionStamp,
@@ -42,21 +43,25 @@ export default (ns, oc, config) => {
       },
       $Static: {
         image: '/static/img',
-        css: '/static/css'
-      },
-      Api: {
-        baseUrl: config.$Protocol + '//localhost:3001/api',
-        items: '/items',
-        categories: '/categories'
-      },
-      Images: {
-        fbShare: '/imajs-share.png'
+        css: '/static/css',
+        js: '/static/js'
       }
     },
 
-    test: {},
+    test: {
+      $Http: {
+        defaultRequestOptions: {
+          timeout: 5000
+        }
+      }
+    },
 
     dev: {
+      $Http: {
+        defaultRequestOptions: {
+          timeout: 2000
+        }
+      },
       $Page: {
         $Render: {
           scripts: [
@@ -65,7 +70,6 @@ export default (ns, oc, config) => {
             '/static/js/vendor.client.js' + versionStamp,
             `/static/js/locale/${config.$Language}.js${versionStamp}`,
             '/static/js/app.client.js' + versionStamp,
-            '/static/js/facebook.js' + versionStamp,
             '/static/js/hot.reload.js' + versionStamp
           ],
           esScripts: [
@@ -74,7 +78,6 @@ export default (ns, oc, config) => {
             '/static/js/vendor.client.es.js' + versionStamp,
             `/static/js/locale/${config.$Language}.js${versionStamp}`,
             '/static/js/app.client.es.js' + versionStamp,
-            '/static/js/facebook.js' + versionStamp,
             '/static/js/hot.reload.js' + versionStamp
           ]
         }

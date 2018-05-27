@@ -1,6 +1,6 @@
-import AbstractController from 'app/page/AbstractController';
+import AbstractPageController from 'app/page/AbstractPageController';
 
-export default class NotFoundController extends AbstractController {
+export default class NotFoundController extends AbstractPageController {
   static get $dependencies() {
     return [];
   }
@@ -12,9 +12,7 @@ export default class NotFoundController extends AbstractController {
   }
 
   /**
-   * Load all needed data.
-   *
-   * @return {{status: number}} Resources to load.
+   * @return {{status: number}}
    */
   load() {
     return {

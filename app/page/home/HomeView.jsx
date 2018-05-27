@@ -1,13 +1,9 @@
 import AbstractComponent from 'ima/page/AbstractComponent';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Feed from 'app/component/feed/Feed';
-import Filter from 'app/component/filter/Filter';
-import Header from 'app/component/header/Header';
-import TextInput from 'app/component/textInput/TextInput';
 
 /**
- * HomePage view.
+ * Home page.
  */
 export default class HomeView extends AbstractComponent {
   static get contextTypes() {
@@ -19,20 +15,16 @@ export default class HomeView extends AbstractComponent {
   render() {
     return (
       <div className="l-homepage">
-        <Header />
-        <TextInput
-          categories={this.props.categories}
-          currentCategory={this.props.currentCategory}
-        />
-        <Filter
-          categories={this.props.categories}
-          currentCategory={this.props.currentCategory}
-        />
-        <Feed
-          entity={this.props.feed}
-          categories={this.props.categories}
-          sharedItem={this.props.sharedItem}
-        />
+        <div className="content">
+          <img
+            src={
+              this.utils.$Router.getBaseUrl() +
+              this.utils.$Settings.$Static.image +
+              '/pozvanka.jpeg'
+            }
+            alt="Lucie & Honza 14. 7. 2018, Špilberk, Jihozápadní bastion"
+          />
+        </div>
       </div>
     );
   }

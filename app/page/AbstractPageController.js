@@ -1,24 +1,27 @@
-import AbstractIMAController from 'ima/controller/AbstractController';
+import AbstractController from 'ima/controller/AbstractController';
+//import Dictionary from 'ima/dictionary/Dictionary';
+//import MetaManager from 'ima/meta/MetaManager';
+//import Router from 'ima/router/Router';
 
 /**
- * Base controller for app.
+ * Basic page controller.
  */
-export default class AbstractController extends AbstractIMAController {
+export default class AbstractPageController extends AbstractController {
   /**
-   * Set meta params.
+   * Set seo params.
    *
-   * @param {Object<string, *>} resolvedPromises
+   * @param {Object<string, *>} loadedResources
    * @param {MetaManager} metaManager
    * @param {Router} router
    * @param {Dictionary} dictionary
-   * @param {Object<string, *>} setting
+   * @param {Object<string, *>} settings
    */
-  setMetaParams(resolvedPromises, metaManager, router, dictionary, setting) {
-    let title = dictionary.get('home.seoTitle');
-    let description = dictionary.get('home.seoDescription');
+  setMetaParams(loadedResources, metaManager, router, dictionary, settings) {
+    let title = 'IMA.js';
+    let description;
+    description = 'IMA.js is isomorphic javascript application framework.';
     let domain = router.getDomain();
-    let fbShareImage = setting.Images.fbShare;
-    let image = `${domain}${setting.$Static.image}${fbShareImage}`;
+    let image = `${domain}${settings.$Static.image}/imajs-share.png`;
 
     let url = router.getUrl();
 
